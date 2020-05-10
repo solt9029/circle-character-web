@@ -5,3 +5,8 @@ h1 {
 #button {
   margin-bottom: 10px;
 }
+
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap);
+body {
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
