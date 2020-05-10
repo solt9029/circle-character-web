@@ -1,10 +1,7 @@
-h1 {
-  margin-top: 10px;
-}
-
-#button {
+#button, #saveButton {
   margin-bottom: 10px;
 }
+
 
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap);
 body {

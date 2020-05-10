@@ -19,7 +19,34 @@ $(function () {
   ctx.textAlign = "center";
   ctx.lineWidth = 0;
 
+  $("#saveButton").click(function () {
+    var a = document.createElement("a");
+    a.href = canvas.toDataURL("image/jpeg", 0.85);
+    a.download = "download.jpg";
+    a.click();
+  });
+
   $("#button").click(function () {
+    if (!isFontLoaded) {
+      $("#fontAlert").css({
+        display: "block",
+      });
+    } else {
+      $("#fontAlert").css({
+        display: "none",
+      });
+    }
+
+    if ($("#character").val().length !== 1) {
+      $("#charAlert").css({
+        display: "block",
+      });
+    } else {
+      $("#charAlert").css({
+        display: "none",
+      });
+    }
+
     ctx.fillText($("#character").val(), canvas.width / 2, 710);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -39,7 +66,7 @@ function main(canvas, ctx) {
   var imageData = ctx.getImageData(0, 0, 800, 800);
 
   // small
-  for (var i = 0; i < $("#smallCircle").val() * 100; i++) {
+  for (var i = 0; i < $("#smallCircle").val(); i++) {
     var diameter = Math.random() * 30 + 30;
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
@@ -64,7 +91,7 @@ function main(canvas, ctx) {
   }
 
   // middle
-  for (var i = 0; i < $("#middleCircle").val() * 100; i++) {
+  for (var i = 0; i < $("#middleCircle").val(); i++) {
     var diameter = Math.random() * 30 + 60;
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
@@ -89,7 +116,7 @@ function main(canvas, ctx) {
   }
 
   // big
-  for (var i = 0; i < $("#bigCircle").val() * 100; i++) {
+  for (var i = 0; i < $("#bigCircle").val(); i++) {
     var diameter = Math.random() * 30 + 90;
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
@@ -121,7 +148,7 @@ function main(canvas, ctx) {
     var shouldAdd = true;
     for (var i2 = i1 + 1; i2 < xList.length; i2++) {
       var distance = dist(xList[i1], yList[i1], xList[i2], yList[i2]);
-      if (distance < 20) {
+      if (distance < $("#distCircle").val()) {
         shouldAdd = false;
       }
     }

@@ -14,9 +14,21 @@
       <h1>円で文字を描くシステムだよ</h1>
 
       <div>
-        <p>
-          参考：<a href="https://twitter.com/simplife_plus/status/1257805754121117696">https://twitter.com/simplife_plus/status/1257805754121117696</a>
-        </p>
+        <ul>
+          <li>
+            作成者：<a href="https://twitter.com/solt9029">@solt9029</a>
+          </li>
+          <li>
+            注意：プログラムの仕組みが雑なので、端末のスペックによっては処理が重くなります。ご了承ください。
+          </li>
+        </ul>
+      </div>
+
+      <div class="alert alert-danger" role="alert" id="fontAlert" style="display: none;">
+        フォントの読み込みが完了していないため、正しく挙動しない場合があります。
+      </div>
+      <div class="alert alert-danger" role="alert" id="charAlert" style="display: none;">
+        描く文字が1文字に設定されていないため、正しく挙動しない場合があります。
       </div>
 
       <form>
@@ -25,20 +37,27 @@
           <input type="text" class="form-control" id="character" value="塩">
         </div>
         <div class="form-group">
+          <label for="distCircle">円と円の最低距離（ピクセル）</label>
+          <input type="number" value="15" class="form-control" id="distCircle">
+        </div>
+        <div class="form-group">
           <label for="bigCircle">大きさ<b>大</b>の円の量（少〜多）</label>
-          <input value="1" min="0" max="100" step="1" type="range" class="form-control-range" id="bigCircle">
+          <input value="100" min="0" max="500" step="1" type="range" class="form-control-range" id="bigCircle">
         </div>
         <div class="form-group">
           <label for="middleCircle">大きさ<b>中</b>の円の量（少〜多）</label>
-          <input value="1" min="0" max="100" step="1" type="range" class="form-control-range" id="middleCircle">
+          <input value="300" min="0" max="500" step="1" type="range" class="form-control-range" id="middleCircle">
         </div>
         <div class="form-group">
           <label for="smallCircle">大きさ<b>小</b>の円の量（少〜多）</label>
-          <input value="1" min="0" max="100" step="1" type="range" class="form-control-range" id="smallCircle">
+          <input value="400" min="0" max="500" step="1" type="range" class="form-control-range" id="smallCircle">
         </div>
       </form>
       <div>
-        <button class="btn btn-lg btn-success" id="button">この設定で描画する</button>
+        <button class="btn btn-lg btn-info" id="button">この設定で描画する（処理に時間がかかります）</button>
+      </div>
+      <div>
+        <button class="btn btn-lg btn-success" id="saveButton">生成された画像を保存する</button>
       </div>
       <div>
         <canvas id="canvas" width="800" height="800"></canvas>
