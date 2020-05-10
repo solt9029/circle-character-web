@@ -15,7 +15,7 @@ WebFont.load({
 $(function () {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
-  ctx.font = "normal 100 800px 'Noto Sans JP'";
+  ctx.font = "normal 100 400px 'Noto Sans JP'";
   ctx.textAlign = "center";
   ctx.lineWidth = 0;
 
@@ -47,11 +47,11 @@ $(function () {
       });
     }
 
-    ctx.fillText($("#character").val(), canvas.width / 2, 710);
+    ctx.fillText($("#character").val(), canvas.width / 2, 355);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     setTimeout(function () {
-      ctx.fillText($("#character").val(), canvas.width / 2, 710);
+      ctx.fillText($("#character").val(), canvas.width / 2, 355);
       setTimeout(function () {
         main(canvas, ctx);
       }, 1000);
@@ -67,7 +67,7 @@ function main(canvas, ctx) {
 
   // small
   for (var i = 0; i < $("#smallCircle").val(); i++) {
-    var diameter = Math.random() * 30 + 30;
+    var diameter = Math.random() * 15 + 15;
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
     var shouldDraw = true;
@@ -92,7 +92,7 @@ function main(canvas, ctx) {
 
   // middle
   for (var i = 0; i < $("#middleCircle").val(); i++) {
-    var diameter = Math.random() * 30 + 60;
+    var diameter = Math.random() * 15 + 30;
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
     var shouldDraw = true;
@@ -117,7 +117,7 @@ function main(canvas, ctx) {
 
   // big
   for (var i = 0; i < $("#bigCircle").val(); i++) {
-    var diameter = Math.random() * 30 + 90;
+    var diameter = Math.random() * 15 + 45;
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
     var shouldDraw = true;
